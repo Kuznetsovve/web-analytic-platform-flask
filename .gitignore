@@ -1,0 +1,17 @@
+.venv/
+venv/
+env/
+instance/
+.env
+.flaskenv
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+*.log
+logs/
+.vscode/
+.idea/
