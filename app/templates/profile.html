@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Профиль - {{ user.username }}</title>
+    <style>
+        .profile-container { max-width: 800px; margin: 40px auto; font-family: Arial, sans-serif; }
+        .btn-logout { display: inline-block; padding: 8px 16px; background: #e74c3c; color: #fff; text-decoration: none; border-radius: 4px; }
+        .reports { margin-top: 30px; }
+        .reports h2 { margin-bottom: 15px; }
+        .report-buttons { display: flex; flex-wrap: wrap; gap: 10px; }
+        .report-btn {
+            display: inline-block;
+            padding: 10px 16px;
+            background: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h1>Профиль {{ user.username }}</h1>
+        <p><strong>ID:</strong> {{ user.id }}</p>
+        <p><strong>Дата регистрации:</strong> {{ user.created_on }}</p>
+
+        <a href="{{ url_for('logout') }}" class="btn-logout">Выйти</a>
+
+        <div class="reports">
+            <h2>Аналитика покупок</h2>
+            <div class="report-buttons">
+                <a href="{{ url_for('total_revenue_query') }}" class="report-btn">
+                    Общая выручка
+                </a>
+                <a href="{{ url_for('avg_revenue_query') }}" class="report-btn">
+                    Средняя выручка
+                </a>
+                <a href="{{ url_for('max_revenue_query') }}" class="report-btn">
+                    Максимальная выручка
+                </a>
+                <a href="{{ url_for('top_products_query') }}" class="report-btn">
+                    Самый продаваемый товар
+                </a>
+                <a href="{{ url_for('categories_query') }}" class="report-btn">
+                    Продажи по категориям
+                </a>
+                <a href="{{ url_for('stocks_query') }}" class="report-btn">
+                    Складские запасы
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

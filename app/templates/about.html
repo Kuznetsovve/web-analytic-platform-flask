@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ data.project.title }}</title>
+</head>
+<body>
+    {% for key, value in data.items() %}
+        <h2>{{ key | title }}</h2>
+
+        {% if value is mapping %}
+            {% for subkey, subvalue in value.items() %}
+                <p><strong>{{ subkey | title }}:</strong> {{ subvalue }}</p>
+            {% endfor %}
+        {% elif value is iterable and value is not string %}
+            <ul>
+                {% for item in value %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>{{ value }}</p>
+        {% endif %}
+    {% endfor %}
+</body>
+</html>

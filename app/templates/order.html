@@ -1,0 +1,10 @@
+<form method="POST" xmlns="http://www.w3.org/1999/html">
+    {{form.hidden_tag()}}
+    {{form.product_id(class="form-control", type="hidden")}}
+    <div>
+        <p>Товар: {{product.name}} (ID: {{product.id}})</p>
+        <br>{{form.quantity.label}} {{form.quantity(class="form-control")}}</br>
+        <br>{{form.address.label}} {{form.address()}}</br>
+    </div>
+    <br>{{form.submit(class="btn btn-primary")}}</br>
+</form>

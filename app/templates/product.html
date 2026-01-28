@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Товары</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 1100px; margin: 40px auto; }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 12px 14px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .card h3 { margin: 0 0 8px; font-size: 18px; }
+        .card p { margin: 4px 0; font-size: 14px; }
+        .card .price { font-weight: bold; color: #27ae60; }
+        .card .meta { color: #777; font-size: 12px; }
+        .card-actions { margin-top: 10px; }
+        .btn {
+            display: inline-block;
+            padding: 6px 10px;
+            background: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Карточки товаров</h1>
+    <div class="cards">
+        {% for product in products %}
+        <div class="card">
+            <h3>Товар #{{ product.id }}</h3>
+            <p class="price">Цена: {{ product.price }} ₽</p>
+            <p>Количество на складе: {{ product.amount or 0 }}</p>
+            <p class="meta">Добавлен: {{ product.created_at }}</p>
+
+            <div class="card-actions">
+                <a href="{{ url_for('order', product_id=product.id) }}" class="btn">
+                    Создать заказ
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>

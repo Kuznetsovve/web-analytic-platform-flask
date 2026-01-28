@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, sans-serif; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            min-height: 100vh; display: flex; align-items: center; justify-content: center; 
+        }
+        .login-container { 
+            background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
+            max-width: 400px; width: 90%; 
+        }
+        .login-header { text-align: center; margin-bottom: 2rem; }
+        .login-header h1 { color: #333; font-size: 2rem; margin-bottom: 0.5rem; }
+        .login-header p { color: #666; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500; }
+        .form-group input { 
+            width: 100%; padding: 1rem; border: 2px solid #e1e5e9; border-radius: 10px; 
+            font-size: 1rem; transition: border-color 0.3s; 
+        }
+        .form-group input:focus { outline: none; border-color: #667eea; box-shadow: 0 0 0 3px rgba(102,126,234,0.1); }
+        .checkbox-group { display: flex; align-items: center; margin-bottom: 1.5rem; }
+        .checkbox-group input[type="checkbox"] { width: auto; margin-right: 0.5rem; }
+        .btn-login { 
+            width: 100%; background: linear-gradient(45deg, #667eea, #764ba2); 
+            color: white; padding: 1rem; border: none; border-radius: 10px; 
+            font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: transform 0.3s; 
+        }
+        .btn-login:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(102,126,234,0.3); }
+        .links { text-align: center; margin-top: 1.5rem; }
+        .links a { color: #667eea; text-decoration: none; font-weight: 500; }
+        .error { color: #e74c3c; font-size: 0.9rem; margin-top: 0.5rem; }
+        @media (max-width: 480px) { .login-container { padding: 2rem; margin: 1rem; } }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1>Вход</h1>
+            <p>Введите логин и пароль</p>
+        </div>
+        
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                {{ form.username.label(class="form-label") }}
+                {{ form.username(class="form-control", placeholder="Логин") }}
+            </div>
+            
+            <div class="form-group">
+                {{ form.password.label(class="form-label") }}
+                {{ form.password(class="form-control", placeholder="Пароль") }}
+            </div>
+            
+            <div class="checkbox-group">
+                {{ form.remember() }}
+                {{ form.remember.label }}
+            </div>
+            
+            {{ form.submit(class="btn-login") }}
+        </form>
+        
+        <div class="links">
+            <a href="{{ url_for('register') }}">Нет аккаунта? Зарегистрироваться</a>
+        </div>
+    </div>
+</body>
+</html>

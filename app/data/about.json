@@ -1,0 +1,63 @@
+{
+  "project": [
+    "title: Аналитическая платформа заказов",
+    "topic: приложение с эмулятором заказов и с аналитическими запросами",
+    "author: Кузнецов Владислав Евгеньевич"
+    ],
+  "routes": [
+    "path: / — домашняя страница",
+    "path: /index — домашняя страница",
+    "path: /home — домашняя страница",
+    "path: /about — о проекте",
+    "path: /api/hash — выводит хэшированную строку",
+    "path: /register — регистрация",
+    "path: /login — вход",
+    "path: /logout — выход",
+    "path: /profile — профиль (требуется логин)",
+    "path: /product/<id> — продукт",
+    "path: /order — заказ",
+    "path: /max_revenue_query — запрос (требуется логин)",
+    "path: /avg_revenue_query — запрос (требуется логин)",
+    "path: /total_revenue_query — запрос (требуется логин)",
+    "path: /top_products_query — запрос (требуется логин)",
+    "path: /categories_query — запрос (требуется логин)",
+    "path: /stocks_query — запрос (требуется логин)"
+  ],
+  "functionality_guest": [
+    "Доступ к форме‑эмулятору оформления заказа без регистрации (выбор товара, его количества, цены)",
+    "Сохранение введённых данных в базу данных для последующего анализа администратором"
+  ],
+  "functionality_admin": [
+    "Аутентификация через страницу введения логина и пароля и доступ в административную панель после успешного входа",
+    "Просмотр и фильтрация заказов, построение простых заготовленных аналитических отчётов",
+    "Работа и с данными, введёнными гостями, и с тестовым набором данных для демонстрации аналитики при отсутствии активности пользователей"
+  ],
+  "dependencies": [
+    "blinker: 1.9.0",
+    "click: 8.3.1",
+    "colorama: 0.4.6",
+    "Flask: 3.1.2",
+    "Flask-Login: 0.6.3",
+    "Flask-SQLAlchemy: 3.1.1",
+    "Flask-WTF: 1.2.2",
+    "greenlet: 3.3.0",
+    "itsdangerous: 2.2.0",
+    "Jinja2: 3.1.6",
+    "MarkupSafe: 3.0.3",
+    "SQLAlchemy: 2.0.45",
+    "typing_extensions: 4.15.0",
+    "Werkzeug: 3.1.4",
+    "WTForms: 3.2.1",
+    "python-dotenv: 1.2.1",
+    "psycopg2-binary: 2.9.11"
+  ],
+  "materials": [
+    "https://habr.com/ru/articles/346306/",
+    "https://habr.com/ru/articles/346340/",
+    "https://habr.com/ru/articles/346342/",
+    "https://habr.com/ru/articles/346344/",
+    "https://habr.com/ru/articles/346346/",
+    "https://www.geeksforgeeks.org/python/making-a-flask-app-using-a-postgresql-database/",
+    "https://pypi.org/project/Flask-WTF/"
+  ]
+}
